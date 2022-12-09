@@ -1,5 +1,6 @@
 package com.luv2code.springdemo;
 
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
@@ -7,5 +8,18 @@ import org.springframework.context.annotation.Configuration;
 @ComponentScan("com.luv2code.springdemo")
 public class SportConfig {
 
-    // retrieve the bean
+
+    // define bean for our sad fortune service
+    @Bean
+    public FortuneService sadFortuneService () {
+        return new SadFortuneService();
+    }
+
+    // define bean from our swim coach and inject dependency
+    @Bean
+    public Coach swimCoach(){
+        return new SwimCoach(sadFortuneService());
+    }
+
+   =
 }
