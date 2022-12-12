@@ -11,12 +11,12 @@ public class JavaConfigDemmoApp {
                 new AnnotationConfigApplicationContext(SportConfig.class);
 
         // get the bean from spring container
-        Coach theCoach = context.getBean("swimCoach", Coach.class);
+        Coach theCoach = context.getBean("swimCoach", SwimCoach.class);
 
         // call a method on the bean
         System.out.println(theCoach.getDailyWorkout());
-
         System.out.println(theCoach.getDailyFortune());
+
         // close th context
         context.close();
     }
